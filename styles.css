@@ -61,6 +61,10 @@ main{
     display: none;
 }
 
+.video-controls:hover{
+    display: flex;
+}
+
 .show-controls{
     display: flex;
 }
