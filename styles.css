@@ -1,0 +1,396 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Montserrat", sans-serif;
+    scroll-behavior: smooth;
+}
+
+button{
+    cursor: pointer;
+}
+
+main{
+    width: 100%;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-cont{
+    width: 60%;
+    position: relative;
+    height: 65%;
+    background: black;
+    overflow: hidden;
+}
+
+.loadVideos{
+    position: absolute;
+    color: rgb(83, 52, 31);
+    right: 5px;
+    top: 0px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.loadVideos input[type="file"]{
+    display: none;
+}
+
+#videoInput{
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+
+
+.video-controls{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: rgba(97, 95, 95, 0.9);
+    width: 100%;
+    padding: 10px 0 0 0;
+    display: none;
+}
+
+.show-controls{
+    display: flex;
+}
+
+.progressCont{
+    display: block;
+    width: 95%;
+    height: 6.5px;
+    background: whitesmoke;
+    margin: 0 auto;
+    position: relative;
+    border-radius: 2.5px;
+    cursor: pointer;
+}
+
+.progress{
+    display: block;
+    width: 0%;
+    background: pink;
+    height: 100%;
+    display: block;
+    margin-top: auto;
+    border-radius: 2.5px;
+    position: relative;
+    transition: width 0.1s linear;
+}
+
+.progress::before{
+    content: "";
+    width: 15px;
+    height: 15px;
+    position: absolute;
+    top: 50%;
+    right: -7.5px;
+    transform: translate(0px, -50%);
+    background: pink;
+    display: block;
+    border-radius: 50%;
+    cursor: pointer;
+    scroll-behavior: smooth;
+}
+
+.timeProgress{
+    display: none;
+    position: absolute;
+    top: -55px;
+    right: -49px;
+    transform: translate(0, 0);
+    background: rgb(0, 0, 0,.6);
+    clip-path: polygon(0% 0%, 100% 0%, 100% 75%, 68% 75%, 50% 100%, 32% 75%, 0% 75%);
+    padding: 10px 15px;
+    font-size: 15px;
+    width: 98px;
+    font-weight: 600;
+    border-radius: 5px;
+}
+
+
+.progress:hover > .timeProgress{
+    display: block;
+}
+
+
+
+
+
+.main-controls{
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1.5fr;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 0;
+    width: 100%;
+}
+
+.first-cont, .second-cont, .third-cont{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.first-cont{
+    width: 100%;
+    padding-left: 15px;
+}
+
+.range{
+    display: flex;
+    flex-basis: 60%;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 0px;
+    column-gap: 5px;
+}
+
+.range i{
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.range input{
+    width: 70%;
+    outline: none;
+    border: none;
+    background: none;
+    height: 5px;
+}
+
+.timeLine{
+    display: flex;
+    font-size: 13px;
+    column-gap: 3px;
+}
+
+.second-cont{
+    display: flex;
+    column-gap: 15px;
+    justify-content: center;
+}
+
+.second-cont button{
+    border: none;
+    background: none;
+    outline: none;
+}
+
+.second-cont button i{
+    font-size: 22px;
+}
+
+
+.third-cont{
+    display: flex;
+    justify-content: flex-end;
+    padding-right: 20px;
+    column-gap: 25px;
+}
+
+.seperate{
+    position: relative;
+}
+
+.options{
+    position: absolute;
+    top: -160px;
+    width: 75px;
+    padding: 5px;
+    display: none;
+    flex-direction: column;
+    left: 50%;
+    transform: translate(-50%, 0px);
+    background: #eee;
+    border-radius: 8px;
+}
+
+.speed{
+    font-size: 15px;
+    font-weight: 700;
+    display: block;
+    width: 100%;
+    text-align: center;
+    padding: 2px 0;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.active{
+    background: blueviolet;
+}
+
+.third-cont button{
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    outline: none;
+}
+
+.third-cont button img{
+    width: 100%;
+    height: 100%;
+}
+
+.options.show{
+    display: flex;
+}
+
+
+/* enable full screen */
+.fullscreen{
+    width: 100%;
+    height: 100vh;
+    min-height: 100%;
+    min-width: 100%;
+}
+
+
+/*Range Reset*/
+input[type="range"] {
+    -webkit-appearance: none;
+    appearance: none;
+    background: transparent;
+    cursor: pointer;
+}
+ 
+/* Removes default focus */
+input[type="range"]:focus {
+   outline: none;
+}
+ 
+/***** Chrome, Safari, Opera and Edge Chromium styles *****/
+/* slider track */
+input[type="range"]::-webkit-slider-runnable-track {
+    background-color: #053a5f;
+    border-radius: 50%;
+    height: 0.1rem;  
+}
+ 
+/* slider thumb */
+input[type="range"]::-webkit-slider-thumb {
+   -webkit-appearance: none; /* Override default look */
+    appearance: none;
+    margin-top: -12px; /* Centers thumb on the track */
+ 
+    /*custom styles*/
+    background-color: #5cd5eb;
+    height: 2rem;
+    width: 1rem;
+}
+ 
+input[type="range"]:focus::-webkit-slider-thumb {   
+   border: 1px solid #053a5f;
+   outline: 3px solid #053a5f;
+   outline-offset: 0.125rem; 
+}
+ 
+/******** Firefox styles ********/
+/* slider track */
+input[type="range"]::-moz-range-track {
+    background-color: #053a5f;
+    border-radius: 0.5rem;
+    height: 0.5rem;
+}
+ 
+/* slider thumb */
+input[type="range"]::-moz-range-thumb {
+    border: none; /*Removes extra border that FF applies*/
+    border-radius: 10px; /*Removes default border-radius that FF applies*/
+ 
+    /*custom styles*/
+    background-color: #5cd5eb;
+    height: 1rem;
+    width: 1rem;
+}
+ 
+
+
+
+/* media query */
+@media only screen and (max-width: 550px){
+    .video-cont{
+        width: 95%;
+    }
+    
+    .main-controls{
+        grid-template-columns: 1.5fr 1fr 1fr;
+    }
+    
+    .first-cont{
+        width: 100%;
+        overflow-x: hidden;
+    }
+    
+    .range i{
+        font-size: 14px;
+    }
+    
+    .first-cont #range{
+        width: 60%;
+    }
+    
+    .first-cont .timeLine .seperator{
+        display: none;
+    }
+    
+    .first-cont .timeLine{
+        font-size: 12px;
+        display: flex;
+        width: 40%;
+        flex-wrap: wrap;
+        row-gap: 0px;
+    }
+    
+    .second-cont{
+        width: 100%;
+    }
+    
+    .second-cont button i{
+        font-size: 16px;
+    }
+    
+    .third-cont{
+        width: 100%;
+        column-gap: 8px;
+    }
+    
+    .third-cont button{
+        width: 20px;
+        height: 20px;
+    }
+
+    .options{
+        z-index: 99;
+        top: -135px;
+    }
+
+    .speed{
+        z-index: 99;
+        font-size: 12px;
+    }
+
+    .seperate{
+        position: relative;
+    }
+}
+
+@media only screen and (min-width: 551px) and (max-width: 900px){
+    .timeLine{
+        width: 40%;
+        display: flex;
+        flex-wrap: wrap;
+    }
+}

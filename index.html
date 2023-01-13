@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Video Player</title>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="author" content="AJIDE SHAMSIDEEN">
+    <meta name="description" content="A custom video player">
+    <link rel="stylesheet" href="/styles.css" type="text/css">
+    <!-- fa icon script link  -->
+    <script src="https://use.fontawesome.com/7e50d7d663.js"></script>
+    <!-- end of fa icon script link  -->
+
+    <!--google font link-->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <!--end of google font link-->
+</head>
+<body>
+    
+    <main>
+        <div class="video-cont">
+            <label class="loadVideos" for="loadVideo"><i class="fa fa-minus" aria-hidden="true"></i>
+                <input type="file" id="loadVideo">
+            </label>
+
+            <div class="overLay">
+                <span class="videos"></span>
+            </div>
+
+            <video type="video/mp4" src="/videos/How to Make Pancakes at Home - Easy Pancake Recipe.mp4" id="videoInput"></video>
+
+            <div class="video-controls">
+
+                <div class="progressCont">
+                    <span class="progress">
+                        <span class="timeProgress">00:00:00</span>
+                    </span>
+                </div>
+
+                <div class="main-controls">
+
+                    <div class="first-cont">
+                        <span class="range">
+                            <i class="fa fa-volume-up" aria-hidden="true"></i>
+                            <input type="range" min="0" max="100" id="range">
+                        </span>
+                        <span class="timeLine">
+                            <span class="currentTIme">00:00:00</span>
+                            <span class="seperator">/</span>
+                            <span class="totalTime">00:00:00</span>
+                        </span>
+                    </div>
+
+                    <div class="second-cont">
+                        <button class="skipBackward"><i class="fa fa-backward" aria-hidden="true"></i></button>
+                        <button class="play_pause"><i class="fa fa-play" aria-hidden="true"></i></button>
+                        <button class="skipForward"><i class="fa fa-forward" aria-hidden="true"></i></button>
+                    </div>
+
+                    <div class="third-cont">
+                        <span class="seperate">
+                            <button class="playbackSpeed">
+                                <img src="/svg/run.svg" alt="">
+                            </button>
+                            <span class="options">
+                                <span class="speed" data-num="2">2</span>
+                                <span class="speed" data-num="1.5">1.5</span>
+                                <span class="speed active" data-num="1">Normal</span>
+                                <span class="speed" data-num="0.5">0.5</span>
+                                <span class="speed" data-num="0.25">0.25</span>
+                            </span>
+                        </span>
+                        
+                        <button class="playInPic"><img src="/svg/pip.svg" alt=""></button>
+                        <button class="fullScreen"><img src="/svg/maximize.svg" alt=""></button>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <script src="/script.js" type="text/javascript"></script>
+</body>
+</html>
