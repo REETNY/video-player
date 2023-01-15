@@ -34,6 +34,7 @@ main{
     top: 0px;
     font-size: 20px;
     cursor: pointer;
+    visibility: hidden;
 }
 
 .loadVideos input[type="file"]{
@@ -67,6 +68,10 @@ main{
 
 .show-controls{
     display: flex;
+}
+
+.video-cont:hover .loadVideos{
+    visibility: visible;
 }
 
 .progressCont{
@@ -327,6 +332,12 @@ input[type="range"]::-moz-range-thumb {
 @media only screen and (max-width: 550px){
     .video-cont{
         width: 95%;
+        min-height: 300px;
+    }
+
+    #videoInput{
+        width: 100%;
+        min-height: 100%;
     }
     
     .main-controls{

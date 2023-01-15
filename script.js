@@ -54,6 +54,7 @@ function timeUpdate(e) {
 
 function loadData(e) {
     const duration = e.target.duration;
+    e.target.currentTime = 0;
     totalTime.innerText = formatSecs(duration)
 }
 
@@ -210,11 +211,6 @@ function stopMedia(){
 
 
 
-
-
-
-
-
 // event listeners
 videoInput.addEventListener("timeupdate", timeUpdate);
 videoInput.addEventListener("loadeddata", loadData);
@@ -253,6 +249,7 @@ fullScreen.addEventListener("click", enableFullScreen);
 const fileLoader = document.querySelector("#loadVideo");
 fileLoader.addEventListener("change", () => {
     stopMedia();
+    videoInput.currentTime = 0;
     const data = fileLoader.files[0];
     var objectUrl = URL.createObjectURL(data);
     videoInput.src = `${objectUrl}`;
