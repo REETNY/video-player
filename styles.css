@@ -333,6 +333,7 @@ input[type="range"]::-moz-range-thumb {
     .video-cont{
         width: 95%;
         min-height: 300px;
+        max-height: 300px;
     }
 
     #videoInput{
