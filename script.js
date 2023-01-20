@@ -169,6 +169,7 @@ function draggableProgress(e){
 function enableFullScreen(){
     if(videoCont.classList.contains("fullscreen")){
         videoCont.classList.remove("fullscreen");
+        videoInput.exitFullScreen();
     }else{
         videoCont.classList.add("fullscreen");
         videoInput.requestFullscreen();
